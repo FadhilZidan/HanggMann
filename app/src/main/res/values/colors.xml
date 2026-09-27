@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="primary">#4F46E5</color>
+    <color name="primary_dark">#3730A3</color>
+    <color name="primary_light">#EEF2FF</color>
+
+    <color name="accent">#16A34A</color>
+    <color name="accent_light">#DCFCE7</color>
+
+    <color name="danger">#DC2626</color>
+    <color name="danger_light">#FEE2E2</color>
+
+    <color name="bg_main">#F8FAFC</color>
+    <color name="card_surface">#FFFFFF</color>
+    <color name="card_stroke">#E2E8F0</color>
+
+    <color name="text_main">#0F172A</color>
+    <color name="text_secondary">#64748B</color>
+
+    <color name="key_default_bg">#E2E8F0</color>
+    <color name="key_pressed_bg">#CBD5E1</color>
+    <color name="key_disabled_bg">#F1F5F9</color>
+
+    <color name="key_correct_bg">#DCFCE7</color>
+    <color name="key_correct_text">#15803D</color>
+
+    <color name="key_wrong_bg">#FEE2E2</color>
+    <color name="key_wrong_text">#991B1B</color>
+
+    <color name="backdrop_dim">#B30F172A</color>
+</resources>

@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_main"
+    tools:context=".MainActivity">
+
+    <!-- [Layer 1 - Z-Order: Terbawah] Papan Permainan -->
+    <ScrollView
+        android:id="@+id/scrollPapanPermainan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/layoutPapanPermainan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Header Bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/judul_aplikasi"
+                    android:textColor="@color/primary"
+                    android:textSize="22sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSkor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_hud_chip"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="6dp"
+                    android:textColor="@color/text_main"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:text="⭐ 0" />
+
+                <TextView
+                    android:id="@+id/tvNyawa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_hud_chip"
+                    android:paddingHorizontal="14dp"
+                    android:paddingVertical="6dp"
+                    android:textColor="@color/text_main"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:text="❤️ 6" />
+            </LinearLayout>
+
+            <!-- Area Gantungan (Card Container) -->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/bg_card_surface"
+                android:padding="16dp">
+
+                <FrameLayout
+                    android:id="@+id/frameGantungan"
+                    android:layout_width="180dp"
+                    android:layout_height="198dp"
+                    android:layout_gravity="center_horizontal">
+
+                    <ImageView
+                        android:id="@+id/gambar_tiang"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/desc_tiang"
+                        android:src="@drawable/gambar_tiang" />
+
+                    <ImageView
+                        android:id="@+id/imgKepala"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/desc_kepala"
+                        android:src="@drawable/gambar_kepala"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/imgBadan"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/desc_badan"
+                        android:src="@drawable/gambar_badan"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/imgTanganKiri"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/desc_tangan_kiri"
+                        android:src="@drawable/gambar_tangan_kiri"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/imgTanganKanan"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/desc_tangan_kanan"
+                        android:src="@drawable/gambar_tangan_kanan"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/imgKakiKiri"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/desc_kaki_kiri"
+                        android:src="@drawable/gambar_kaki_kiri"
+                        android:visibility="invisible" />
+
+                    <ImageView
+                        android:id="@+id/imgKakiKanan"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/desc_kaki_kanan"
+                        android:src="@drawable/gambar_kaki_kanan"
+                        android:visibility="invisible" />
+                </FrameLayout>
+            </FrameLayout>
+
+            <!-- Display Kata Rahasia -->
+            <TextView
+                android:id="@+id/tvKata"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bg_card_surface"
+                android:gravity="center"
+                android:letterSpacing="0.25"
+                android:paddingVertical="14dp"
+                android:textColor="@color/primary"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                tools:text="_ _ _ _ _" />
+
+            <!-- Display Riwayat Huruf Salah -->
+            <TextView
+                android:id="@+id/tvRiwayat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:gravity="center"
+                android:textColor="@color/danger"
+                android:textSize="15sp"
+                tools:text="Salah: -" />
+
+            <!-- Baris Kontrol Input Manual -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etTebak"
+                    android:layout_width="72dp"
+                    android:layout_height="48dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_card_surface"
+                    android:gravity="center"
+                    android:hint="@string/hint_input"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"
+                    android:inputType="textCapCharacters"
+                    android:maxLength="1"
+                    android:textColor="@color/text_main"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Button
+                    android:id="@+id/btnTebak"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_btn_primary"
+                    android:paddingHorizontal="20dp"
+                    android:text="@string/btn_tebak"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <!-- Keyboard Tombol A-Z -->
+            <GridLayout
+                android:id="@+id/gridKeyboard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:alignmentMode="alignBounds"
+                android:columnCount="7"
+                android:rowCount="4"
+                android:useDefaultMargins="true" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- [Layer 2 - Z-Order: Tengah] Overlay Hasil Permainan -->
+    <FrameLayout
+        android:id="@+id/overlayHasil"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backdrop_dim"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="24dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_overlay_card"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <TextView
+                android:id="@+id/tvHasil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/accent"
+                android:textSize="32sp"
+                android:textStyle="bold"
+                tools:text="@string/menang_title" />
+
+            <TextView
+                android:id="@+id/tvKataAkhir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center"
+                android:textColor="@color/text_main"
+                android:textSize="18sp"
+                tools:text="Kata rahasia adalah: KOTLIN" />
+
+            <Button
+                android:id="@+id/btnMainLagi"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_btn_primary"
+                android:text="@string/btn_main_lagi"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- [Layer 3 - Z-Order: Teratas] Overlay Mulai Permainan -->
+    <FrameLayout
+        android:id="@+id/overlayMulai"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backdrop_dim"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="24dp"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_overlay_card"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/judul_aplikasi"
+                android:textColor="@color/primary"
+                android:textSize="36sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="32dp"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp"
+                android:text="@string/petunjuk_mulai"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btnMulai"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_btn_primary"
+                android:text="@string/btn_mulai"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- [Layer 4 - Z-Order: Keempat] Overlay Kategori Kesulitan -->
+    <FrameLayout
+        android:id="@+id/overlayKesulitan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/backdrop_dim"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="24dp"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_overlay_card"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pilih_kesulitan_title"
+                android:textColor="@color/primary"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="28dp"
+                android:gravity="center"
+                android:text="@string/pilih_kesulitan_sub"
+                android:textColor="@color/text_secondary"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btnMudah"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_btn_secondary"
+                android:text="@string/kesulitan_mudah"
+                android:textColor="@color/primary"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnSedang"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/bg_btn_secondary"
+                android:text="@string/kesulitan_sedang"
+                android:textColor="@color/primary"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/btnSulit"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@drawable/bg_btn_secondary"
+                android:text="@string/kesulitan_sulit"
+                android:textColor="@color/primary"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+</FrameLayout>

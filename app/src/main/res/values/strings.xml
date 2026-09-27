@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Hangman App</string>
+    <string name="judul_aplikasi">HANGMAN</string>
+    <string name="nyawa_format">❤️ %1$d</string>
+    <string name="skor_format">⭐ %1$d</string>
+    <string name="riwayat_salah_format">Salah: %1$s</string>
+    <string name="petunjuk_mulai">Selamat datang di permainan Hangman!\n\nTebak kata rahasia huruf demi huruf sebelum gantungannya selesai.\n\nPetunjuk: Seluruh kata berkaitan dengan pemrograman Android.</string>
+    <string name="btn_mulai">Mulai Bermain</string>
+    <string name="btn_tebak">Tebak</string>
+    <string name="btn_main_lagi">Main Lagi</string>
+    <string name="hint_input">A-Z</string>
+    <string name="menang_title">Kamu Menang!</string>
+    <string name="kalah_title">Kamu Kalah</string>
+    <string name="kata_akhir_format">Kata rahasia adalah: %1$s</string>
+    <string name="pesan_salah_input">Masukkan 1 huruf alfabet (A-Z)</string>
+    <string name="pesan_sudah_ditebak">Huruf \'%1$s\' sudah pernah ditebak!</string>
+    <string name="default_nyawa">❤️ 6</string>
+    <string name="default_skor">⭐ 0</string>
+    <string name="default_riwayat_salah">Salah: -</string>
+
+    <string name="pilih_kesulitan_title">Pilih Kesulitan</string>
+    <string name="pilih_kesulitan_sub">Tentukan jumlah nyawa tebakan Anda:</string>
+    <string name="kesulitan_mudah">Mudah (8 Nyawa)</string>
+    <string name="kesulitan_sedang">Sedang (6 Nyawa)</string>
+    <string name="kesulitan_sulit">Sulit (4 Nyawa)</string>
+
+    <string name="desc_tiang">Tiang gantung</string>
+    <string name="desc_kepala">Kepala hangman</string>
+    <string name="desc_badan">Badan hangman</string>
+    <string name="desc_tangan_kiri">Tangan kiri hangman</string>
+    <string name="desc_tangan_kanan">Tangan kanan hangman</string>
+    <string name="desc_kaki_kiri">Kaki kiri hangman</string>
+    <string name="desc_kaki_kanan">Kaki kanan hangman</string>
+
+    <string-array name="daftar_kata">
+        <item>KOTLIN</item>
+        <item>ANDROID</item>
+        <item>DEVELOPER</item>
+        <item>VARIABLE</item>
+        <item>FUNCTION</item>
+        <item>DATABASE</item>
+        <item>STUDIO</item>
+        <item>INTERNET</item>
+        <item>PROGRAMMING</item>
+        <item>HARDWARE</item>
+    </string-array>
+</resources>
